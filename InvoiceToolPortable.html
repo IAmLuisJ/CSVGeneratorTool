@@ -290,6 +290,17 @@
     <span class="tooltiptext">Fiscal Week</span>
 <select id="invoiceWeek" class="weekSelect" onchange="limitWeek()">
     <option value="blank">Select Week</option>
+    <option value="02/06/2021">Fiscal Week 01 (02/06/2021)</option>
+    <option value="02/13/2021">Fiscal Week 02 (02/13/2021)</option>
+    <option value="02/20/2021">Fiscal Week 03 (02/20/2021)</option>
+    <option value="02/27/2021">Fiscal Week 04 (02/27/2021)</option>
+    <option value="03/06/2021">Fiscal Week 05 (03/06/2021)</option>
+    <option value="03/13/2021">Fiscal Week 06 (03/13/2021)</option>
+    <option value="03/20/2021">Fiscal Week 07 (03/20/2021)</option>
+    <option value="03/27/2021">Fiscal Week 08 (03/27/2021)</option>
+    <option value="04/03/2021">Fiscal Week 09 (04/03/2021)</option>
+    <option value="04/10/2021">Fiscal Week 10 (04/10/2021)</option>
+    <option value="04/17/2021">Fiscal Week 11 (04/17/2021)</option>
     <option value="04/25/2021">Fiscal Week 12 (04/24/2021)</option>
     <option value="05/01/2021">Fiscal Week 13 (05/01/2021)</option>
     <option value="05/08/2021">Fiscal Week 14 (05/08/2021)</option>
@@ -323,9 +334,14 @@
     <option value="11/20/2021">Fiscal Week 42 (11/20/2021)</option>
     <option value="11/27/2021">Fiscal Week 43 (11/27/2021)</option>
     <option value="12/04/2021">Fiscal Week 44 (12/04/2021)</option>
-    <option value="12/11/2021">Fiscal Week 44 (12/11/2021)</option>
-    <option value="12/18/2021">Fiscal Week 44 (12/18/2021)</option>
-    <option value="12/25/2021">Fiscal Week 44 (12/25/2021)</option>
+    <option value="12/11/2021">Fiscal Week 45 (12/11/2021)</option>
+    <option value="12/18/2021">Fiscal Week 46 (12/18/2021)</option>
+    <option value="12/25/2021">Fiscal Week 47 (12/25/2021)</option>
+    <option value="01/02/2022">Fiscal Week 48 (01/02/2022)</option>
+    <option value="01/09/2022">Fiscal Week 49 (01/09/2022)</option>
+    <option value="01/16/2022">Fiscal Week 50 (01/16/2022)</option>
+    <option value="01/23/2022">Fiscal Week 51 (01/23/2022)</option>
+    <option value="01/30/2022">Fiscal Week 52 (01/30/2022)</option>
 </select>
 </div>
 <div class="tooltip" id="companyDiv">
@@ -466,8 +482,6 @@
         document.getElementById("addRow").scrollIntoView();
     };
 
-
-
     document.getElementById("downloadCSVButton").onclick = function() {
         let companyCode = document.getElementById("loginName").value;
         let chosenWeek = document.getElementById("invoiceWeek").value;
@@ -527,7 +541,6 @@
         };
         resetInputs();
     }
-
 
     function removeLine() {
         //removes tr element if the close button is clicked
