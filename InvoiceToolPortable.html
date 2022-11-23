@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>InvoiceTable</title>
@@ -20,10 +21,10 @@
             background-color: #999999;
             padding: 10px;
             border-collapse: collapse;
-            box-shadow: 0px 0px 20px rgba(0,0,0,0.10),
-            0px 10px 20px rgba(0,0,0,0.05),
-            0px 20px 20px rgba(0,0,0,0.05),
-            0px 30px 20px rgba(0,0,0,0.05);
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.10),
+                0px 10px 20px rgba(0, 0, 0, 0.05),
+                0px 20px 20px rgba(0, 0, 0, 0.05),
+                0px 30px 20px rgba(0, 0, 0, 0.05);
         }
 
         form {
@@ -97,7 +98,8 @@
             background-color: #dddddd;
         }
 
-        th, td {
+        th,
+        td {
             color: #999;
             border: 1px solid black;
             padding: 12px 35px;
@@ -110,10 +112,10 @@
             border-collapse: collapse;
             border: 1px solid #eeeeee;
             border-bottom: 2px solid #0000cc;
-            box-shadow: 0px 0px 20px rgba(0,0,0,0.10),
-            0px 10px 20px rgba(0,0,0,0.05),
-            0px 20px 20px rgba(0,0,0,0.05),
-            0px 30px 20px rgba(0,0,0,0.05);
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.10),
+                0px 10px 20px rgba(0, 0, 0, 0.05),
+                0px 20px 20px rgba(0, 0, 0, 0.05),
+                0px 30px 20px rgba(0, 0, 0, 0.05);
         }
 
         tr:hover {
@@ -231,15 +233,15 @@
             width: 135px;
             font-family: Arial;
             border: 1px solid #eeeeee;
-            box-shadow: 0px 0px 20px rgba(0,0,0,0.10),
-            0px 10px 20px rgba(0,0,0,0.05),
-            0px 20px 20px rgba(0,0,0,0.05),
-            0px 30px 20px rgba(0,0,0,0.05);
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.10),
+                0px 10px 20px rgba(0, 0, 0, 0.05),
+                0px 20px 20px rgba(0, 0, 0, 0.05),
+                0px 30px 20px rgba(0, 0, 0, 0.05);
         }
 
         .disclaimer {
-            width:100%;
-            bottom:0;
+            width: 100%;
+            bottom: 0;
         }
 
         #weekDiv {
@@ -252,7 +254,7 @@
             opacity: 0;
         }
 
-        #csvFileInput + label {
+        #csvFileInput+label {
             margin: 0;
             padding: 14.5px 32px;
             border-radius: 5px;
@@ -262,9 +264,11 @@
             cursor: pointer;
         }
 
-        #csvFileInput:focus + label, #csvFileInput + label:hover {
+        #csvFileInput:focus+label,
+        #csvFileInput+label:hover {
             background-color: #4CAF50;
         }
+
         #companyDiv {
             float: right;
         }
@@ -275,624 +279,625 @@
             width: 120px;
             font-family: Arial;
             border: 1px solid #eeeeee;
-            box-shadow: 0px 0px 20px rgba(0,0,0,0.10),
-            0px 10px 20px rgba(0,0,0,0.05),
-            0px 20px 20px rgba(0,0,0,0.05),
-            0px 30px 20px rgba(0,0,0,0.05);
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.10),
+                0px 10px 20px rgba(0, 0, 0, 0.05),
+                0px 20px 20px rgba(0, 0, 0, 0.05),
+                0px 30px 20px rgba(0, 0, 0, 0.05);
         }
     </style>
 </head>
+
 <body>
-<ul>
-    <li><a class="activeNav" onclick="window.location.reload()">Reset Tool</a></li>
-</ul>
-<div class="tooltip" id="weekDiv">
-    <span class="tooltiptext">Fiscal Week</span>
-<select id="invoiceWeek" class="weekSelect" onchange="limitWeek()">
-    <option value="blank">Select Week</option>
-    <option value="02/06/2021">Fiscal Week 01 (02/06/2021)</option>
-    <option value="02/13/2021">Fiscal Week 02 (02/13/2021)</option>
-    <option value="02/20/2021">Fiscal Week 03 (02/20/2021)</option>
-    <option value="02/27/2021">Fiscal Week 04 (02/27/2021)</option>
-    <option value="03/06/2021">Fiscal Week 05 (03/06/2021)</option>
-    <option value="03/13/2021">Fiscal Week 06 (03/13/2021)</option>
-    <option value="03/20/2021">Fiscal Week 07 (03/20/2021)</option>
-    <option value="03/27/2021">Fiscal Week 08 (03/27/2021)</option>
-    <option value="04/03/2021">Fiscal Week 09 (04/03/2021)</option>
-    <option value="04/10/2021">Fiscal Week 10 (04/10/2021)</option>
-    <option value="04/17/2021">Fiscal Week 11 (04/17/2021)</option>
-    <option value="04/25/2021">Fiscal Week 12 (04/24/2021)</option>
-    <option value="05/01/2021">Fiscal Week 13 (05/01/2021)</option>
-    <option value="05/08/2021">Fiscal Week 14 (05/08/2021)</option>
-    <option value="05/15/2021">Fiscal Week 15 (05/15/2021)</option>
-    <option value="05/22/2021">Fiscal Week 16 (05/24/2021)</option>
-    <option value="05/29/2021">Fiscal Week 17 (05/29/2021)</option>
-    <option value="06/05/2021">Fiscal Week 18 (06/05/2021)</option>
-    <option value="06/12/2021">Fiscal Week 19 (06/12/2021)</option>
-    <option value="06/19/2021">Fiscal Week 20 (06/19/2021)</option>
-    <option value="06/26/2021">Fiscal Week 21 (06/26/2021)</option>
-    <option value="07/03/2021">Fiscal Week 22 (07/03/2021)</option>
-    <option value="07/10/2021">Fiscal Week 23 (07/10/2021)</option>
-    <option value="07/17/2021">Fiscal Week 24 (07/17/2021)</option>
-    <option value="07/24/2021">Fiscal Week 25 (07/24/2021)</option>
-    <option value="07/31/2021">Fiscal Week 26 (07/31/2021)</option>
-    <option value="08/07/2021">Fiscal Week 27 (08/07/2021)</option>
-    <option value="08/14/2021">Fiscal Week 28 (08/14/2021)</option>
-    <option value="08/21/2021">Fiscal Week 29 (08/21/2021)</option>
-    <option value="08/28/2021">Fiscal Week 30 (08/28/2021)</option>
-    <option value="09/04/2021">Fiscal Week 31 (09/04/2021)</option>
-    <option value="09/11/2021">Fiscal Week 32 (09/11/2021)</option>
-    <option value="09/18/2021">Fiscal Week 33 (09/18/2021)</option>
-    <option value="09/25/2021">Fiscal Week 34 (09/25/2021)</option>
-    <option value="10/02/2021">Fiscal Week 35 (10/02/2021)</option>
-    <option value="10/09/2021">Fiscal Week 36 (10/09/2021)</option>
-    <option value="10/16/2021">Fiscal Week 37 (10/16/2021)</option>
-    <option value="10/23/2021">Fiscal Week 38 (10/23/2021)</option>
-    <option value="10/30/2021">Fiscal Week 39 (10/30/2021)</option>
-    <option value="11/06/2021">Fiscal Week 40 (11/06/2021)</option>
-    <option value="11/13/2021">Fiscal Week 41 (11/13/2021)</option>
-    <option value="11/20/2021">Fiscal Week 42 (11/20/2021)</option>
-    <option value="11/27/2021">Fiscal Week 43 (11/27/2021)</option>
-    <option value="12/04/2021">Fiscal Week 44 (12/04/2021)</option>
-    <option value="12/11/2021">Fiscal Week 45 (12/11/2021)</option>
-    <option value="12/18/2021">Fiscal Week 46 (12/18/2021)</option>
-    <option value="12/25/2021">Fiscal Week 47 (12/25/2021)</option>
-    <option value="01/02/2022">Fiscal Week 48 (01/02/2022)</option>
-    <option value="01/09/2022">Fiscal Week 49 (01/09/2022)</option>
-    <option value="01/16/2022">Fiscal Week 50 (01/16/2022)</option>
-    <option value="01/23/2022">Fiscal Week 51 (01/23/2022)</option>
-    <option value="01/30/2022">Fiscal Week 52 (01/30/2022)</option>
-</select>
-</div>
-<div class="tooltip" id="companyDiv">
-    <span class="tooltiptext">Company Code</span>
-<input type="text" id="loginName" placeholder="3 Digit Code">
-</div>
-<h1 id="titleHeader">Exception Invoice Tool</h1>
-<p id="scriptLoadError" class="errorMessage"></p>
-<div id="inputDiv" class="container">
-    <form onsubmit="checkTable();return false">
-    <h2>New Line</h2>
-    <label for="inputCompletedDate">Completed Date</label>
-    <input type="date" id="inputCompletedDate" placeholder="MM/DD/YYY" required>
-        <span id="orderNumberError" class="inputError"></span>
-         <input type="text" id="inputOrderNumber" placeholder="FMS Order Number" required autocomplete="off">
-    <input type="text" id="inputSKU" placeholder="SKU" maxlength="7">
-    <span id="inputAmountError" class="inputError"></span>
-    <label for="inputAmount">$</label>
-<input type="number" id="inputAmount" placeholder="Amount" required>
+    <ul>
+        <li><a class="activeNav" onclick="window.location.reload()">Reset Tool</a></li>
+    </ul>
+    <div class="tooltip" id="weekDiv">
+        <span class="tooltiptext">Fiscal Week</span>
+        <select id="invoiceWeek" class="weekSelect" onchange="limitWeek()">
+            <option value="blank">Select Week</option>
+        </select>
+    </div>
+    <div class="tooltip" id="companyDiv">
+        <span class="tooltiptext">Company Code</span>
+        <input type="text" id="loginName" placeholder="3 Digit Code">
+    </div>
+    <h1 id="titleHeader">Exception Invoice Tool</h1>
+    <p id="scriptLoadError" class="errorMessage"></p>
+    <div id="inputDiv" class="container">
+        <form onsubmit="checkTable();return false">
+            <h2>New Line</h2>
+            <label for="inputCompletedDate">Completed Date</label>
+            <input type="date" id="inputCompletedDate" placeholder="MM/DD/YYY" required>
+            <span id="orderNumberError" class="inputError"></span>
+            <input type="text" id="inputOrderNumber" placeholder="FMS Order Number" required autocomplete="off">
+            <input type="text" id="inputSKU" placeholder="SKU" maxlength="7">
+            <span id="inputAmountError" class="inputError"></span>
+            <label for="inputAmount">$</label>
+            <input type="number" id="inputAmount" placeholder="Amount" required>
+            <br>
+            <label for="invoiceDate">Invoice Date</label>
+            <input type="date" id="invoiceDate" placeholder="MM/DD/YYYY" required>
+            <select id="inputSubReason">
+                <option value="Field Leadership request"
+                    title="This sub-reason should be used when field leaders initiate requests outside of normal coverage or SOW">
+                    Field Leadership Request</option>
+                <option value="Force Complete/Missing from Base"
+                    title="This sub-reason should be used when FMS order lines have been Force Completed or are missing from the base invoice">
+                    Force Complete/Missing from Base</option>
+                <option value="Credit Memo"
+                    title="This sub-reason should be used any time a payment from Service Provider to Best Buy is being made using the APV Process">
+                    Credit Memo</option>
+                <option value="SOW SKU addition (include SKU)"
+                    title="This sub-reason should be used when additional service (that has a SKU) is required to complete an appointment">
+                    Scope of Work SKU Addition (Include SKU)</option>
+                <option value="LP/Side venting Parts"
+                    title="This sub-reason should be used when Service Providers acquire LP conversion or side-venting parts to perform a client appointment over $30.">
+                    LP/Side-Venting Parts</option>
+                <option value="Plumbing Parts"
+                    title="This sub-reason should be used for instances where plumbing parts are required to complete SoW. Ex. Gas Line not provided at loadout, reducer, coupler">
+                    Plumbing Parts</option>
+                <option value="Electrical Parts"
+                    title="This sub-reason should be used for instances where additional electrical parts are required to complete SoW. Most of our SoW does indicate that parts are included as part of the service at no additional charge. This would be used in instances where something outside of the normally supplied accessories are required for completion of the SoW.">
+                    Electrical Parts</option>
+                <option value="Permit Fee"
+                    title="This sub-reason should be used for instances where permit fees are required">Permit Fees
+                </option>
+                <option value="Multiperson crew requirement"
+                    title="This sub-reason should be used for instances where the completion of SoW is dependent on non-standard crew needs. Pre-approval with field leadership or corporate support partners is required for submission. Approver must add notes within FMS authorizing charges with agreed upon amount">
+                    Multi-Person Crew Requirement</option>
+                <option value="Modifications (Cabinetry)"
+                    title="This sub-reason should be used when modifications are required to complete Scope of Work.">
+                    Modifications (Cabinetry)</option>
+                <option value="Modifications (Counter)"
+                    title="This sub-reason should be used when modifications are required to complete Scope of Work">
+                    Modifications (Counter)</option>
+                <option value="Modifications (Venting)"
+                    title="This sub-reason should be used when modifications are required to complete Scope of Work">
+                    Modifications (Venting)</option>
+                <option value="Misc Labor"
+                    title="This sub-reason has been included on the exception invoice for future considerations. At this time, Service Providers should not be submitting exceptions using this reason code.">
+                    Misc Labor</option>
+                <option value="Store Display"
+                    title="This sub-reason should be used when SKU 5770800 is used to create an order for four or more store displays to be installed or uninstalled. This can also be used when displays other than built-in, column refrigerators, or OTR products are required.">
+                    Store Display</option>
+                <option value="Flat Rate"
+                    title="This sub-reason should be used when a contracted flat rate is not being submitted via the M4A or TradeShift process.">
+                    Flat Rate</option>
+                <option value="Trip Fee/Service Call"
+                    title="This sub-reason should be used for the following reasons: 1. Fulfillment is outside of normal minor market coverage area. 2. Service call reason is deemed to be no fault of the Service Provider">
+                    Trip Fee/Service Call</option>
+                <option value="Manual work order"
+                    title="This sub-reason should be used when a manual work order is created to complete work">Manual
+                    Work Order</option>
+            </select>
+            <input type="text" id="inputZip" title="Zip Code" placeholder="Zip Code" maxlength="5" required>
+            <input type="text" id="inputNotes" title="DoD Case number/Notes" placeholder="DoD Case Number/Notes"
+                autocomplete="off">
+            <input type="number" id="inputLocation" title="Best Buy Location number" placeholder="Store Number"
+                required>
+            <input type="submit" value="Add Line" class="addBtn">
+        </form>
+    </div>
+    <table id="dataTable" class="table">
+        <thead>
+            <tr>
+                <th>Completed Date</th>
+                <th>FMS Ord Num</th>
+                <th>Amt</th>
+                <th>Inv Date</th>
+                <th>Sub Reason Description</th>
+                <th>SKU</th>
+                <th>Zip</th>
+                <th>DoD Case Number</th>
+                <th>BBY Location Number</th>
+            </tr>
+        </thead>
+        <tbody id="mainTableBody">
+        </tbody>
+    </table>
     <br>
-    <label for="invoiceDate">Invoice Date</label>
-<input type="date" id="invoiceDate" placeholder="MM/DD/YYYY" required>
-<select id="inputSubReason">
-    <option value="Field Leadership request" title="This sub-reason should be used when field leaders initiate requests outside of normal coverage or SOW">Field Leadership Request</option>
-    <option value="Force Complete/Missing from Base" title="This sub-reason should be used when FMS order lines have been Force Completed or are missing from the base invoice">Force Complete/Missing from Base</option>
-    <option value="Credit Memo" title="This sub-reason should be used any time a payment from Service Provider to Best Buy is being made using the APV Process">Credit Memo</option>
-    <option value="SOW SKU addition (include SKU)" title="This sub-reason should be used when additional service (that has a SKU) is required to complete an appointment">Scope of Work SKU Addition (Include SKU)</option>
-    <option value="LP/Side venting Parts" title="This sub-reason should be used when Service Providers acquire LP conversion or side-venting parts to perform a client appointment over $30.">LP/Side-Venting Parts</option>
-    <option value="Plumbing Parts" title="This sub-reason should be used for instances where plumbing parts are required to complete SoW. Ex. Gas Line not provided at loadout, reducer, coupler">Plumbing Parts</option>
-    <option value="Electrical Parts" title="This sub-reason should be used for instances where additional electrical parts are required to complete SoW. Most of our SoW does indicate that parts are included as part of the service at no additional charge. This would be used in instances where something outside of the normally supplied accessories are required for completion of the SoW.">Electrical Parts</option>
-    <option value="Permit Fee" title="This sub-reason should be used for instances where permit fees are required">Permit Fees</option>
-    <option value="Multiperson crew requirement" title="This sub-reason should be used for instances where the completion of SoW is dependent on non-standard crew needs. Pre-approval with field leadership or corporate support partners is required for submission. Approver must add notes within FMS authorizing charges with agreed upon amount">Multi-Person Crew Requirement</option>
-    <option value="Modifications (Cabinetry)" title="This sub-reason should be used when modifications are required to complete Scope of Work.">Modifications (Cabinetry)</option>
-    <option value="Modifications (Counter)" title="This sub-reason should be used when modifications are required to complete Scope of Work">Modifications (Counter)</option>
-    <option value="Modifications (Venting)" title="This sub-reason should be used when modifications are required to complete Scope of Work">Modifications (Venting)</option>
-    <option value="Misc Labor" title="This sub-reason has been included on the exception invoice for future considerations. At this time, Service Providers should not be submitting exceptions using this reason code.">Misc Labor</option>
-    <option value="Store Display" title="This sub-reason should be used when SKU 5770800 is used to create an order for four or more store displays to be installed or uninstalled. This can also be used when displays other than built-in, column refrigerators, or OTR products are required.">Store Display</option>
-    <option value="Flat Rate" title="This sub-reason should be used when a contracted flat rate is not being submitted via the M4A or TradeShift process.">Flat Rate</option>
-    <option value="Trip Fee/Service Call" title="This sub-reason should be used for the following reasons: 1. Fulfillment is outside of normal minor market coverage area. 2. Service call reason is deemed to be no fault of the Service Provider">Trip Fee/Service Call</option>
-    <option value="Manual work order" title="This sub-reason should be used when a manual work order is created to complete work">Manual Work Order</option>
-</select>
-<input type="text" id="inputZip" title="Zip Code" placeholder="Zip Code" maxlength="5" required>
-<input type="text" id="inputNotes" title="DoD Case number/Notes" placeholder="DoD Case Number/Notes" autocomplete="off">
-<input type="number" id="inputLocation" title="Best Buy Location number" placeholder="Store Number" required>
-<input type="submit" value="Add Line" class="addBtn">
-    </form>
-</div>
-<table id="dataTable" class="table">
-    <thead>
-    <tr>
-        <th>Completed Date</th>
-        <th>FMS Ord Num</th>
-        <th>Amt</th>
-        <th>Inv Date</th>
-        <th>Sub Reason Description</th>
-        <th>SKU</th>
-        <th>Zip</th>
-        <th>DoD Case Number</th>
-        <th>BBY Location Number</th>
-    </tr>
-    </thead>
-    <tbody id="mainTableBody">
-    </tbody>
-</table>
-<br>
-<input type="file" id="csvFileInput" accept=".csv">
-<label for="csvFileInput">Choose a File</label>
-<button id="checkInvoiceTable">Check Invoice Table</button>
-<button id="addRow">Force Add Line</button>
-<button type="submit" id="downloadCSVButton">Download CSV</button>
-<div class="disclaimer">
-    <br>
-    <details><summary>FAQ and Notes</summary>
+    <input type="file" id="csvFileInput" accept=".csv">
+    <label for="csvFileInput">Choose a File</label>
+    <button id="checkInvoiceTable">Check Invoice Table</button>
+    <button id="addRow">Force Add Line</button>
+    <button type="submit" id="downloadCSVButton">Download CSV</button>
+    <div class="disclaimer">
         <br>
-<p>All submissions should have basic accompanying support documentation regardless of sub-reason:<br>
-    • Photo documentation with notes via the UWO application.<br>
-    • Notes submitted within FMS</p>
-    </details>
-</div>
-<script>
-    class TableCSVExporter {
-        constructor (table, includeHeaders = true) {
-            this.table = table;
-            this.rows = Array.from(table.querySelectorAll("tr"));
+        <details>
+            <summary>FAQ and Notes</summary>
+            <br>
+            <p>All submissions should have basic accompanying support documentation regardless of sub-reason:<br>
+                • Photo documentation with notes via the UWO application.<br>
+                • Notes submitted within FMS</p>
+        </details>
+    </div>
+    <script>
+        class TableCSVExporter {
+            constructor(table, includeHeaders = true) {
+                this.table = table;
+                this.rows = Array.from(table.querySelectorAll("tr"));
 
-            if(!includeHeaders && this.rows[0].querySelectorAll("th").length) {
-                this.rows.shift();
-            }
-        }
-
-        convertToCSV () {
-            let lines = [];
-            let numCols = 9;
-            //const numCols = this._findLongestRowLength();
-
-            for (const row of this.rows) {
-                let line = "";
-
-                for (let i = 0; i < numCols; i++) {
-                    if (row.children[i] !== undefined) {
-                        line += TableCSVExporter.parseCell(row.children[i]);
-                    }
-                    line += (i !== (numCols - 1)) ? "," : "";
+                if (!includeHeaders && this.rows[0].querySelectorAll("th").length) {
+                    this.rows.shift();
                 }
-                lines.push(line);
             }
-            return lines.join("\n");
+
+            convertToCSV() {
+                let lines = [];
+                let numCols = 9;
+                //const numCols = this._findLongestRowLength();
+
+                for (const row of this.rows) {
+                    let line = "";
+
+                    for (let i = 0; i < numCols; i++) {
+                        if (row.children[i] !== undefined) {
+                            line += TableCSVExporter.parseCell(row.children[i]);
+                        }
+                        line += (i !== (numCols - 1)) ? "," : "";
+                    }
+                    lines.push(line);
+                }
+                return lines.join("\n");
+            }
+
+            _findLongestRowLength() {
+                //private method to find longest row length
+                //call reduce method on array rows tof ind longest row length
+                return this.rows.reduce((l, row) => row.childElementCount > l ? row.childElementCount : l, 0);
+            }
+
+            static parseCell(tableCell) {
+                //parsing cells to check for commas, quotations
+                let parsedValue = tableCell.textContent;
+                //replace all double quotes with two double quotes
+                parsedValue = parsedValue.replace(/"/g, '""');
+                parsedValue = parsedValue.replace(/[,\n]/, " ");
+                parsedValue = parsedValue.replace(/,/g, '');
+
+                return parsedValue;
+            }
         }
+    </script>
+    <script>
+        let dataTable = document.getElementById("dataTable");
+        let invoiceName = "";
+        let myRowList = dataTable.getElementsByTagName('tr');
 
-        _findLongestRowLength () {
-            //private method to find longest row length
-            //call reduce method on array rows tof ind longest row length
-            return this.rows.reduce((l, row) => row.childElementCount > l ? row.childElementCount : l, 0);
-        }
+        setWeek();
+        setDate();
+        addDates();
 
-        static parseCell (tableCell) {
-            //parsing cells to check for commas, quotations
-            let parsedValue = tableCell.textContent;
-            //replace all double quotes with two double quotes
-            parsedValue = parsedValue.replace(/"/g, '""');
-            parsedValue = parsedValue.replace(/[,\n]/, " ");
-            parsedValue = parsedValue.replace(/,/g, '');
-
-            return parsedValue;
-        }
-    }
-</script>
-<script>
-    let dataTable = document.getElementById("dataTable");
-    let invoiceName = "";
-    let myRowList = dataTable.getElementsByTagName('tr');
-
-    setWeek();
-    setDate();
-
-    document.getElementById("addRow").onclick = function() {
-        AddLine();
-        document.getElementById("addRow").scrollIntoView();
-    };
-
-    document.getElementById("downloadCSVButton").onclick = function() {
-        let companyCode = document.getElementById("loginName").value;
-        let chosenWeek = document.getElementById("invoiceWeek").value;
-        chosenWeek = chosenWeek.replace(/\//g, '');
-        if (chosenWeek === "blank") {
-            setWeek();
-            chosenWeek = invoiceName;
-        }
-        checkDateFormat();
-
-        const exporter = new TableCSVExporter(dataTable);
-        const csvOutput = exporter.convertToCSV();
-        const csvBlob = new Blob([csvOutput], { type: "text/csv"});
-        const blobURL = URL.createObjectURL(csvBlob);
-        const anchorElement = document.createElement("a");
-
-        anchorElement.href = blobURL;
-        anchorElement.download = companyCode + chosenWeek +"EX.csv";
-        anchorElement.click();
-
-        setTimeout(() => {
-            URL.revokeObjectURL(blobURL);
-        }, 500);
-    };
-
-    function AddLine() {
-        let row = document.getElementById('mainTableBody').insertRow(-1);
-        row.addEventListener('dblclick', reloadLine);
-
-        let cell0 = row.insertCell(0);
-        let cell1 = row.insertCell(1);
-        let cell2 = row.insertCell(2);
-        let cell3 = row.insertCell(3);
-        let cell4 = row.insertCell(4);
-        let cell5 = row.insertCell(5);
-        let cell6 = row.insertCell(6);
-        let cell7 = row.insertCell(7);
-        let cell8 = row.insertCell(8);
-
-        cell0.innerHTML = document.getElementById("inputCompletedDate").value;
-        cell1.innerHTML = document.getElementById("inputOrderNumber").value;
-        cell2.innerHTML = document.getElementById("inputAmount").value;
-        cell3.innerHTML = document.getElementById("invoiceDate").value;
-        cell4.innerHTML = document.getElementById("inputSubReason").value;
-        cell5.innerHTML = document.getElementById("inputSKU").value;
-        cell6.innerHTML = document.getElementById("inputZip").value;
-        cell7.innerHTML = document.getElementById("inputNotes").value;
-        cell8.innerHTML = document.getElementById("inputLocation").value;
-
-        let span = document.createElement("span");
-        let txt = document.createTextNode("\u00D7");
-        span.className = "close";
-        span.appendChild(txt);
-        row.appendChild(span);
-        span.onclick = function() {
-            removeItem(this);
+        document.getElementById("addRow").onclick = function () {
+            AddLine();
+            document.getElementById("addRow").scrollIntoView();
         };
-        resetInputs();
-    }
 
-    function removeLine() {
-        //removes tr element if the close button is clicked
-        for (let i = 1; i < myRowList.length; i++) {
+        document.getElementById("downloadCSVButton").onclick = function () {
+            let companyCode = document.getElementById("loginName").value;
+            let chosenWeek = document.getElementById("invoiceWeek").value;
+            chosenWeek = chosenWeek.replace(/\//g, '');
+            if (chosenWeek === "blank") {
+                setWeek();
+                chosenWeek = invoiceName;
+            }
+            checkDateFormat();
+
+            const exporter = new TableCSVExporter(dataTable);
+            const csvOutput = exporter.convertToCSV();
+            const csvBlob = new Blob([csvOutput], { type: "text/csv" });
+            const blobURL = URL.createObjectURL(csvBlob);
+            const anchorElement = document.createElement("a");
+
+            anchorElement.href = blobURL;
+            anchorElement.download = companyCode + chosenWeek + "EX.csv";
+            anchorElement.click();
+
+            setTimeout(() => {
+                URL.revokeObjectURL(blobURL);
+            }, 500);
+        };
+
+        function addDates() {
+            //generate all the options and add them to the tool
+            const weekSelect = document.getElementById("invoiceWeek");
+            const parsedDate = invoiceName.substring(0, 2) + "/" + invoiceName.substring(2, 4) + "/" + invoiceName.substring(4)
+            const currentWeek = new Date(parsedDate);
+            currentWeek.setDate(currentWeek.getDate() - 12 * 7);
+            for (let index = 1; index < 15; index++) {
+                currentWeek.setDate(currentWeek.getDate() + 7)
+                const option = new Option('Fiscal Week (' + currentWeek.toLocaleDateString() + ")", currentWeek.toLocaleDateString());
+                weekSelect.add(option)
+            }
+        }
+
+        function AddLine() {
+            let row = document.getElementById('mainTableBody').insertRow(-1);
+            row.addEventListener('dblclick', reloadLine);
+
+            let cell0 = row.insertCell(0);
+            let cell1 = row.insertCell(1);
+            let cell2 = row.insertCell(2);
+            let cell3 = row.insertCell(3);
+            let cell4 = row.insertCell(4);
+            let cell5 = row.insertCell(5);
+            let cell6 = row.insertCell(6);
+            let cell7 = row.insertCell(7);
+            let cell8 = row.insertCell(8);
+
+            cell0.innerHTML = document.getElementById("inputCompletedDate").value;
+            cell1.innerHTML = document.getElementById("inputOrderNumber").value;
+            cell2.innerHTML = document.getElementById("inputAmount").value;
+            cell3.innerHTML = document.getElementById("invoiceDate").value;
+            cell4.innerHTML = document.getElementById("inputSubReason").value;
+            cell5.innerHTML = document.getElementById("inputSKU").value;
+            cell6.innerHTML = document.getElementById("inputZip").value;
+            cell7.innerHTML = document.getElementById("inputNotes").value;
+            cell8.innerHTML = document.getElementById("inputLocation").value;
+
             let span = document.createElement("span");
             let txt = document.createTextNode("\u00D7");
             span.className = "close";
             span.appendChild(txt);
-            myRowList[i].appendChild(span);
-        }
-
-        let close = dataTable.getElementsByClassName("close");
-        for (let j = 0; j < close.length; j++) {
-            close[j].onclick = function () {
+            row.appendChild(span);
+            span.onclick = function () {
                 removeItem(this);
             };
+            resetInputs();
         }
-    }
 
-    function removeItem(parent) {
-        let div = parent.parentElement;
-        div.parentNode.removeChild(div);
-    }
+        function removeLine() {
+            //removes tr element if the close button is clicked
+            for (let i = 1; i < myRowList.length; i++) {
+                let span = document.createElement("span");
+                let txt = document.createTextNode("\u00D7");
+                span.className = "close";
+                span.appendChild(txt);
+                myRowList[i].appendChild(span);
+            }
 
-    function reloadLine() {
-        let reloadCells = this.childNodes;
+            let close = dataTable.getElementsByClassName("close");
+            for (let j = 0; j < close.length; j++) {
+                close[j].onclick = function () {
+                    removeItem(this);
+                };
+            }
+        }
 
-        document.getElementById("inputCompletedDate").value = reloadCells[0].innerText;
-        document.getElementById("inputOrderNumber").value = reloadCells[1].innerText;
-        //document.getElementById("inputAmount").value = reloadCells[2].innerText;
-        document.getElementById("invoiceDate").value = reloadCells[3].innerText;
-        //document.getElementById("inputSubReason").value = reloadCells[4].innerText;
-        //document.getElementById("inputSKU").value = reloadCells[5].innerText;
-        document.getElementById("inputZip").value = reloadCells[6].innerText;
-        document.getElementById("inputNotes").value = reloadCells[7].innerText;
-        document.getElementById("inputLocation").value = reloadCells[8].innerText;
+        function removeItem(parent) {
+            let div = parent.parentElement;
+            div.parentNode.removeChild(div);
+        }
+
+        function reloadLine() {
+            let reloadCells = this.childNodes;
+
+            document.getElementById("inputCompletedDate").value = reloadCells[0].innerText;
+            document.getElementById("inputOrderNumber").value = reloadCells[1].innerText;
+            //document.getElementById("inputAmount").value = reloadCells[2].innerText;
+            document.getElementById("invoiceDate").value = reloadCells[3].innerText;
+            //document.getElementById("inputSubReason").value = reloadCells[4].innerText;
+            //document.getElementById("inputSKU").value = reloadCells[5].innerText;
+            document.getElementById("inputZip").value = reloadCells[6].innerText;
+            document.getElementById("inputNotes").value = reloadCells[7].innerText;
+            document.getElementById("inputLocation").value = reloadCells[8].innerText;
 
 
-    }
+        }
 
-    function checkDateFormat() {
-        //helper function to update dates
-        const userLocale = window.navigator.language;
+        function checkDateFormat() {
+            //helper function to update dates
+            const userLocale = window.navigator.language;
 
-        const dateRegularExpression = /^(19[5-9][0-9]|20[0-4][0-9]|2050)[-/](0?[1-9]|1[0-2])[-/](0?[1-9]|[12][0-9]|3[01])$/igm;
+            const dateRegularExpression = /^(19[5-9][0-9]|20[0-4][0-9]|2050)[-/](0?[1-9]|1[0-2])[-/](0?[1-9]|[12][0-9]|3[01])$/igm;
 
-        let tableRowsToFormat = Array.from(document.querySelectorAll("tr"));
-        for (let i = 0; i < tableRowsToFormat.length; i++) {
-            let cells = Array.from(tableRowsToFormat[i].querySelectorAll("td"));
+            let tableRowsToFormat = Array.from(document.querySelectorAll("tr"));
+            for (let i = 0; i < tableRowsToFormat.length; i++) {
+                let cells = Array.from(tableRowsToFormat[i].querySelectorAll("td"));
 
-            if (cells[0] != null ) {
-                if (cells[0].innerText.match(dateRegularExpression)) {
-                cells[0].innerText  = formatDates(cells[0].innerText);
+                if (cells[0] != null) {
+                    if (cells[0].innerText.match(dateRegularExpression)) {
+                        cells[0].innerText = formatDates(cells[0].innerText);
+                    }
                 }
-            }
 
-            if(cells[3] != null) {
-                if (cells[3].innerText.match(dateRegularExpression)){
-                cells[3].innerText = formatDates(cells[3].innerText);
-                }
-            }
-        }
-    }
-
-    function formatDates(dateHolder) {
-        const year = dateHolder.substring(0,4);
-        const month = dateHolder.substring(5,7);
-        const day = dateHolder.substring(8,10);
-        const formattedDate = month + "/" + day + "/" + year;
-        return formattedDate;
-
-    }
-
-    function checkTable() {
-        let alertMessage = "";
-        let subReason = document.getElementById("inputSubReason").value;
-        let zipCodeRegex = /^\d{5}$/;
-        let invalidStore = [960, 710,715,973,1129,1225,1228,1320,1324,1326,2280,2281,2311,2468,2469,2603,2611,2612,2997,3101,3102,3107,3109,3111,3112,3113,3115,3116,3117,3118,3119,3120,3122,3125,3126,3127,3129,3130,3131,3132];
-
-        console.log("Checking Invoice for errors");
-
-        //validate zip code
-        if(!zipCodeRegex.test(document.getElementById("inputZip").value)) {
-            alertMessage += "Invalid zip code \n";
-        }
-        //if Leadership Request, approval required in notes
-        if(subReason === "Field Leadership request") {
-            if (document.getElementById("inputNotes").value === ""){
-                alertMessage += "Approvers name is required in the notes for Field Leadership Request \n";
-            }
-        }
-
-        //if Force Complete, SKU is required
-        if(subReason === "Force Complete/Missing from Base") {
-            if (document.getElementById("inputSKU").value === ""){
-                alertMessage += "SKU is required for this sub-reason \n";
-            }
-        }
-        //if SOW addition, require SKU
-        if(subReason === "SOW SKU addition (include SKU)") {
-            if (document.getElementById("inputSKU").value === ""){
-                alertMessage += "SKU is required for this sub-reason (SOW Addition) \n";
-            }
-        }
-
-        //if Modification, should not have SKU
-        if(subReason === "Modifications (Cabinetry)") {
-            if (document.getElementById("inputSKU").value !== ""){
-                alertMessage += "SKU should be blank for Modifications. Please separate installation services to their own line with sub reason Scope of Work SKU Addition \n";
-            }
-        }
-
-        if(subReason === "Modifications (Counter)") {
-            if (document.getElementById("inputSKU").value !== ""){
-                alertMessage += "SKU should be blank for Modifications. Please separate installation services to their own line with sub reason Scope of Work SKU Addition \n";
-            }
-        }
-
-        if(subReason === "Modifications (Venting)") {
-            if (document.getElementById("inputSKU").value !== ""){
-                alertMessage += "SKU should be blank for Modifications. Please separate installation services to their own line with sub reason Scope of Work SKU Addition \n";
-            }
-        }
-
-        //if plumbing parts
-        if (subReason === "Plumbing Parts") {
-            if (document.getElementById("inputSKU").value !== "") {
-                alertMessage += "SKU should be blank for Plumbing parts. Please separate installation services to their own line with sub reason Scope of Work SKU Addition  \n";
-            }
-        }
-        //if Service call, SKU should be blank
-        if (subReason === "Trip Fee/Service Call") {
-            if (document.getElementById("inputSKU").value !== "") {
-                alertMessage += "SKU should be blank for Trip Fee \n";
-            }
-        }
-        //Checks for store 960 (not billable location)
-        for (let i=0;i < invalidStore.length;i++){
-            if (document.getElementById("inputLocation").value === invalidStore[i].toString()) {
-                alertMessage += invalidStore[i].toString() + " is not a billable location, please use store location closest to client address \n";
-            }
-        }
-
-        //Credit memo should be negative
-        if(subReason === "Credit Memo") {
-            if (document.getElementById("inputAmount").value > 0) {
-                alertMessage += "Credit should be a negative amount\n";
-            }
-        }
-
-        if (alertMessage !== "") {
-            document.getElementById("scriptLoadError").className = "errorWarning";
-            document.getElementById("scriptLoadError").innerText = alertMessage;
-        } else {
-            document.getElementById("scriptLoadError").className = "errorMessage";
-            document.getElementById("scriptLoadError").innerText = "";
-            AddLine();
-        }
-    }
-
-    function limitWeek() {
-        let extraMonths = [1,3,5,7,8,10,12];
-        let longMonth = false;
-        let selectedWeek = new Date(document.getElementById("invoiceWeek").value);
-        let selectedDay =  selectedWeek.getDate().toString();
-        let selectedMonth = selectedWeek.getMonth() + 1;
-
-        let inputDate = document.getElementById('inputCompletedDate');
-        let minMonth = selectedMonth;
-        let minDay = selectedWeek.getDate() - 6;
-        if (minDay <= 0) {
-            for (let e in extraMonths) {
-                if ((selectedMonth - 1) === extraMonths[e]) {
-                    longMonth = true;
-                }
-            }
-            if(longMonth) {
-                minDay = minDay + 31;
-            } else{
-                minDay = minDay + 30;
-            }
-            minMonth -= 1;
-        }
-        minDay =  minDay.toString();
-        minMonth = minMonth.toString();
-        selectedMonth = selectedMonth.toString();
-        inputDate.min = selectedWeek.getFullYear() + "-" + minMonth.padStart(2,"0") + "-" + minDay.padStart(2,"0");
-        inputDate.max = selectedWeek.getFullYear() + "-" + selectedMonth.padStart(2, "0") + "-" + selectedDay.padStart(2, "0");
-
-
-    }
-
-    function setWeek() {
-        let today = new Date();
-        let first = today.getDate() - today.getDay();
-        let last = first + 6;
-
-        let firstDay = new Date(today.setDate(first)).toDateString();
-        let lastDay = new Date(today.setDate(last));
-
-        let dayNumber = lastDay.getDate();
-        let monthNumber = lastDay.getMonth() + 1;
-        let yearNumber = lastDay.getFullYear();
-
-        invoiceName = monthNumber.toString().padStart(2,"0") + dayNumber.toString().padStart(2, "0") + yearNumber.toString();
-
-    }
-
-    function setDate() {
-        document.getElementById("invoiceDate").valueAsDate = new Date();
-    }
-
-    function resetInputs() {
-        document.getElementById("inputOrderNumber").value = "";
-        document.getElementById("inputAmount").value = "";
-        document.getElementById("inputSKU").value = "";
-        document.getElementById("inputZip").value = "";
-        document.getElementById("inputNotes").value = "";
-        document.getElementById("inputLocation").value = "";
-    }
-</script>
-<script>
-    let alertMessage = "";
-    let alertRow = 0;
-
-    function parseCSV(file, delimiter, callback) {
-        let reader = new FileReader();
-
-        reader.onload = function() {
-            let lines = this.result.split('\n');
-            let result = lines.map(function(line) {
-                return line.split(delimiter);
-            });
-            callback(result);
-        };
-        reader.readAsText(file);
-    }
-
-    function generateTable(parsedFile) {
-        let newTable = document.getElementById("dataTable");
-        newTable.innerHTML = "";
-        let newTbody = newTable.createTBody();
-        newTbody.id = 'mainTableBody';
-
-        for (let i = 0; i<1;i++){
-            let newRow = newTable.insertRow(-1);
-            for(let j=0; j<parsedFile[i].length;j++){
-                newRow.insertCell(j);
-                newRow.cells[j].outerHTML = "<th>" + parsedFile[i][j] + "</th>";
-            }
-        }
-
-        for (let i = 1; i<parsedFile.length;i++){
-            if(parsedFile[i].length > 7) {
-                let newRow = newTable.insertRow(-1);
-                newRow.addEventListener('dblclick', reloadLine);
-                for(let j=0; j<parsedFile[i].length;j++){
-                    let cell = newRow.insertCell(j);
-                    newRow.cells[j].innerHTML = parsedFile[i][j];
+                if (cells[3] != null) {
+                    if (cells[3].innerText.match(dateRegularExpression)) {
+                        cells[3].innerText = formatDates(cells[3].innerText);
+                    }
                 }
             }
         }
-        removeLine();
-    }
 
-    function validateRow(row) {
-        let cells = Array.from(row.querySelectorAll("td"));
-        let invalidStore = [960, 710,715,973,1129,1225,1228,1320,1324,1326,2280,2281,2311,2468,2469,2603,2611,2612,2997,3109,3111,3115,3116,3119,3126,3132];
-        let requiredFields = [0,1,2,3,4,6,8];
-        let blankError = false;
-        let zipCodeRegex = /^\d{5}$/;
+        function formatDates(dateHolder) {
+            const year = dateHolder.substring(0, 4);
+            const month = dateHolder.substring(5, 7);
+            const day = dateHolder.substring(8, 10);
+            const formattedDate = month + "/" + day + "/" + year;
+            return formattedDate;
 
-        //error checking for completed date
-
-        //error checking for order number
-
-        //error checking for amount
-
-        //error checking invoice date
-
-        //error checking sub reason
-
-        //error checking SKU
-
-        //error checking ZIP
-        if (!zipCodeRegex.test(cells[6].textContent)) {
-            alertMessage += "Error in row " + alertRow +" "+ "Invalid zip code \n";
-            cells[6].style.backgroundColor = "yellow";
         }
-        //error checking case number
 
-        //error checking location
+        function checkTable() {
+            let alertMessage = "";
+            let subReason = document.getElementById("inputSubReason").value;
+            let zipCodeRegex = /^\d{5}$/;
+            let invalidStore = [960, 710, 715, 973, 1129, 1225, 1228, 1320, 1324, 1326, 2280, 2281, 2311, 2468, 2469, 2603, 2611, 2612, 2997, 3101, 3102, 3107, 3109, 3111, 3112, 3113, 3115, 3116, 3117, 3118, 3119, 3120, 3122, 3125, 3126, 3127, 3129, 3130, 3131, 3132];
 
-        for (let j=0;j<invalidStore.length; j++) {
-            if(cells[8].textContent === invalidStore[j].toString()) {
-                alertMessage += "Error in row " + alertRow +" Store "+invalidStore[j].toString() + " is not a billable location, please use store location closest to client address \n";
-                cells[8].style.backgroundColor = "red";
+            console.log("Checking Invoice for errors");
+
+            //validate zip code
+            if (!zipCodeRegex.test(document.getElementById("inputZip").value)) {
+                alertMessage += "Invalid zip code \n";
             }
-        }
-        for (let k=0; k<requiredFields.length;k++){
-            if (cells[requiredFields[k]].textContent === "") {
-                cells[requiredFields[k]].style.backgroundColor = "yellow";
-                blankError = true;
-            }
-        }
-        if (blankError) {
-            alertMessage += "Error in row " + alertRow +" "+ "Required fields have been highlighted yellow \n";
-        }
-    }
-
-    document.querySelector('input[type="file"]').addEventListener('change', function() {
-        let files = this.files;
-        let fileName = files[0].name;
-        let extensionTypeAllowed = ".csv";
-        try {
-            if (fileName.substr(fileName.length-extensionTypeAllowed.length, extensionTypeAllowed.length).toLowerCase() === extensionTypeAllowed.toLowerCase()){
-                console.log("File is valid CSV");
-                for(let i =0; i<files.length;i++) {
-                    parseCSV(files[i], ',', function (result) {
-                        generateTable(result);
-                    })
+            //if Leadership Request, approval required in notes
+            if (subReason === "Field Leadership request") {
+                if (document.getElementById("inputNotes").value === "") {
+                    alertMessage += "Approvers name is required in the notes for Field Leadership Request \n";
                 }
+            }
+
+            //if Force Complete, SKU is required
+            if (subReason === "Force Complete/Missing from Base") {
+                if (document.getElementById("inputSKU").value === "") {
+                    alertMessage += "SKU is required for this sub-reason \n";
+                }
+            }
+            //if SOW addition, require SKU
+            if (subReason === "SOW SKU addition (include SKU)") {
+                if (document.getElementById("inputSKU").value === "") {
+                    alertMessage += "SKU is required for this sub-reason (SOW Addition) \n";
+                }
+            }
+
+            //if Modification, should not have SKU
+            if (subReason === "Modifications (Cabinetry)") {
+                if (document.getElementById("inputSKU").value !== "") {
+                    alertMessage += "SKU should be blank for Modifications. Please separate installation services to their own line with sub reason Scope of Work SKU Addition \n";
+                }
+            }
+
+            if (subReason === "Modifications (Counter)") {
+                if (document.getElementById("inputSKU").value !== "") {
+                    alertMessage += "SKU should be blank for Modifications. Please separate installation services to their own line with sub reason Scope of Work SKU Addition \n";
+                }
+            }
+
+            if (subReason === "Modifications (Venting)") {
+                if (document.getElementById("inputSKU").value !== "") {
+                    alertMessage += "SKU should be blank for Modifications. Please separate installation services to their own line with sub reason Scope of Work SKU Addition \n";
+                }
+            }
+
+            //if plumbing parts
+            if (subReason === "Plumbing Parts") {
+                if (document.getElementById("inputSKU").value !== "") {
+                    alertMessage += "SKU should be blank for Plumbing parts. Please separate installation services to their own line with sub reason Scope of Work SKU Addition  \n";
+                }
+            }
+            //if Service call, SKU should be blank
+            if (subReason === "Trip Fee/Service Call") {
+                if (document.getElementById("inputSKU").value !== "") {
+                    alertMessage += "SKU should be blank for Trip Fee \n";
+                }
+            }
+            //Checks for store 960 (not billable location)
+            for (let i = 0; i < invalidStore.length; i++) {
+                if (document.getElementById("inputLocation").value === invalidStore[i].toString()) {
+                    alertMessage += invalidStore[i].toString() + " is not a billable location, please use store location closest to client address \n";
+                }
+            }
+
+            //Credit memo should be negative
+            if (subReason === "Credit Memo") {
+                if (document.getElementById("inputAmount").value > 0) {
+                    alertMessage += "Credit should be a negative amount\n";
+                }
+            }
+
+            if (alertMessage !== "") {
+                document.getElementById("scriptLoadError").className = "errorWarning";
+                document.getElementById("scriptLoadError").innerText = alertMessage;
             } else {
-                throw new Error("Invalid File Type");
+                document.getElementById("scriptLoadError").className = "errorMessage";
+                document.getElementById("scriptLoadError").innerText = "";
+                AddLine();
             }
-        } catch (e) {
-            alert("Invalid File Type, please select a CSV file");
-            console.log(e.message);
-        }
-    });
-
-    document.getElementById('checkInvoiceTable').onclick = function () {
-        let tableRowsToCheck = Array.from(document.querySelectorAll("tr"));
-
-        for(let i=1;i < tableRowsToCheck.length;i++) {
-            alertRow = i;
-            validateRow(tableRowsToCheck[i]);
         }
 
-        if (alertMessage !== "") {
-            document.getElementById("scriptLoadError").className = "errorWarning";
-            document.getElementById("scriptLoadError").innerText = alertMessage;
-            alertMessage = "";
-            document.getElementById("checkInvoiceTable").style.backgroundColor = "#0000cc";
-            document.getElementById("checkInvoiceTable").textContent = "Check Invoice Table";
-        } else {
-            document.getElementById("checkInvoiceTable").textContent = "No errors found!";
-            document.getElementById("checkInvoiceTable").style.backgroundColor = "green";
-            document.getElementById("scriptLoadError").className = "errorMessage";
-            document.getElementById("scriptLoadError").innerText = "";
+        function limitWeek() {
+            let extraMonths = [1, 3, 5, 7, 8, 10, 12];
+            let longMonth = false;
+            let selectedWeek = new Date(document.getElementById("invoiceWeek").value);
+            let selectedDay = selectedWeek.getDate().toString();
+            let selectedMonth = selectedWeek.getMonth() + 1;
+
+            let inputDate = document.getElementById('inputCompletedDate');
+            let minMonth = selectedMonth;
+            let minDay = selectedWeek.getDate() - 6;
+            if (minDay <= 0) {
+                for (let e in extraMonths) {
+                    if ((selectedMonth - 1) === extraMonths[e]) {
+                        longMonth = true;
+                    }
+                }
+                if (longMonth) {
+                    minDay = minDay + 31;
+                } else {
+                    minDay = minDay + 30;
+                }
+                minMonth -= 1;
+            }
+            minDay = minDay.toString();
+            minMonth = minMonth.toString();
+            selectedMonth = selectedMonth.toString();
+            inputDate.min = selectedWeek.getFullYear() + "-" + minMonth.padStart(2, "0") + "-" + minDay.padStart(2, "0");
+            inputDate.max = selectedWeek.getFullYear() + "-" + selectedMonth.padStart(2, "0") + "-" + selectedDay.padStart(2, "0");
+
+
         }
-    };
-</script>
+
+        function setWeek() {
+            let today = new Date();
+            let first = today.getDate() - today.getDay();
+            let last = first + 6;
+
+            let firstDay = new Date(today.setDate(first)).toDateString();
+            let lastDay = new Date(today.setDate(last));
+
+            let dayNumber = lastDay.getDate();
+            let monthNumber = lastDay.getMonth() + 1;
+            let yearNumber = lastDay.getFullYear();
+
+            invoiceName = monthNumber.toString().padStart(2, "0") + dayNumber.toString().padStart(2, "0") + yearNumber.toString();
+
+        }
+
+        function setDate() {
+            document.getElementById("invoiceDate").valueAsDate = new Date();
+        }
+
+        function resetInputs() {
+            document.getElementById("inputOrderNumber").value = "";
+            document.getElementById("inputAmount").value = "";
+            document.getElementById("inputSKU").value = "";
+            document.getElementById("inputZip").value = "";
+            document.getElementById("inputNotes").value = "";
+            document.getElementById("inputLocation").value = "";
+        }
+    </script>
+    <script>
+        let alertMessage = "";
+        let alertRow = 0;
+
+        function parseCSV(file, delimiter, callback) {
+            let reader = new FileReader();
+
+            reader.onload = function () {
+                let lines = this.result.split('\n');
+                let result = lines.map(function (line) {
+                    return line.split(delimiter);
+                });
+                callback(result);
+            };
+            reader.readAsText(file);
+        }
+
+        function generateTable(parsedFile) {
+            let newTable = document.getElementById("dataTable");
+            newTable.innerHTML = "";
+            let newTbody = newTable.createTBody();
+            newTbody.id = 'mainTableBody';
+
+            for (let i = 0; i < 1; i++) {
+                let newRow = newTable.insertRow(-1);
+                for (let j = 0; j < parsedFile[i].length; j++) {
+                    newRow.insertCell(j);
+                    newRow.cells[j].outerHTML = "<th>" + parsedFile[i][j] + "</th>";
+                }
+            }
+
+            for (let i = 1; i < parsedFile.length; i++) {
+                if (parsedFile[i].length > 7) {
+                    let newRow = newTable.insertRow(-1);
+                    newRow.addEventListener('dblclick', reloadLine);
+                    for (let j = 0; j < parsedFile[i].length; j++) {
+                        let cell = newRow.insertCell(j);
+                        newRow.cells[j].innerHTML = parsedFile[i][j];
+                    }
+                }
+            }
+            removeLine();
+        }
+
+        function validateRow(row) {
+            let cells = Array.from(row.querySelectorAll("td"));
+            let invalidStore = [960, 710, 715, 973, 1129, 1225, 1228, 1320, 1324, 1326, 2280, 2281, 2311, 2468, 2469, 2603, 2611, 2612, 2997, 3109, 3111, 3115, 3116, 3119, 3126, 3132];
+            let requiredFields = [0, 1, 2, 3, 4, 6, 8];
+            let blankError = false;
+            let zipCodeRegex = /^\d{5}$/;
+
+            //error checking for completed date
+
+            //error checking for order number
+
+            //error checking for amount
+
+            //error checking invoice date
+
+            //error checking sub reason
+
+            //error checking SKU
+
+            //error checking ZIP
+            if (!zipCodeRegex.test(cells[6].textContent)) {
+                alertMessage += "Error in row " + alertRow + " " + "Invalid zip code \n";
+                cells[6].style.backgroundColor = "yellow";
+            }
+            //error checking case number
+
+            //error checking location
+
+            for (let j = 0; j < invalidStore.length; j++) {
+                if (cells[8].textContent === invalidStore[j].toString()) {
+                    alertMessage += "Error in row " + alertRow + " Store " + invalidStore[j].toString() + " is not a billable location, please use store location closest to client address \n";
+                    cells[8].style.backgroundColor = "red";
+                }
+            }
+            for (let k = 0; k < requiredFields.length; k++) {
+                if (cells[requiredFields[k]].textContent === "") {
+                    cells[requiredFields[k]].style.backgroundColor = "yellow";
+                    blankError = true;
+                }
+            }
+            if (blankError) {
+                alertMessage += "Error in row " + alertRow + " " + "Required fields have been highlighted yellow \n";
+            }
+        }
+
+        document.querySelector('input[type="file"]').addEventListener('change', function () {
+            let files = this.files;
+            let fileName = files[0].name;
+            let extensionTypeAllowed = ".csv";
+            try {
+                if (fileName.substr(fileName.length - extensionTypeAllowed.length, extensionTypeAllowed.length).toLowerCase() === extensionTypeAllowed.toLowerCase()) {
+                    console.log("File is valid CSV");
+                    for (let i = 0; i < files.length; i++) {
+                        parseCSV(files[i], ',', function (result) {
+                            generateTable(result);
+                        })
+                    }
+                } else {
+                    throw new Error("Invalid File Type");
+                }
+            } catch (e) {
+                alert("Invalid File Type, please select a CSV file");
+                console.log(e.message);
+            }
+        });
+
+        document.getElementById('checkInvoiceTable').onclick = function () {
+            let tableRowsToCheck = Array.from(document.querySelectorAll("tr"));
+
+            for (let i = 1; i < tableRowsToCheck.length; i++) {
+                alertRow = i;
+                validateRow(tableRowsToCheck[i]);
+            }
+
+            if (alertMessage !== "") {
+                document.getElementById("scriptLoadError").className = "errorWarning";
+                document.getElementById("scriptLoadError").innerText = alertMessage;
+                alertMessage = "";
+                document.getElementById("checkInvoiceTable").style.backgroundColor = "#0000cc";
+                document.getElementById("checkInvoiceTable").textContent = "Check Invoice Table";
+            } else {
+                document.getElementById("checkInvoiceTable").textContent = "No errors found!";
+                document.getElementById("checkInvoiceTable").style.backgroundColor = "green";
+                document.getElementById("scriptLoadError").className = "errorMessage";
+                document.getElementById("scriptLoadError").innerText = "";
+            }
+        };
+    </script>
 </body>
+
 </html>
